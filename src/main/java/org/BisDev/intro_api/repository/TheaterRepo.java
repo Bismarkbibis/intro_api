@@ -12,10 +12,14 @@ import java.util.Optional;
 public interface TheaterRepo extends JpaRepository<Theater,Integer> {
 
     @Query("SELECT T FROM Theater  T WHERE T.name = :name")
-    public Optional<Theater> findByName(String name);
+    Optional<Theater> findByName(String name);
 
     @Query("SELECT A FROM Theater A WHERE A.autor = :autor")
-    public Optional<Theater> findByAutor(String autor);
-    @Query("SELECT ")
+    Optional<Theater> findByAutor(String autor);
+
+    @Query("SELECT A FROM Theater A INNER JOIN A.category C where C.theaters = :nameCategory")
     Optional<Category> findByCategory(String name);
+
+
+
 }

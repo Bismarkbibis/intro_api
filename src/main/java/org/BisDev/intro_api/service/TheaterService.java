@@ -1,5 +1,6 @@
 package org.BisDev.intro_api.service;
 
+import org.BisDev.intro_api.model.Category;
 import org.BisDev.intro_api.model.Theater;
 import org.BisDev.intro_api.repository.TheaterRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,9 @@ public class TheaterService {
 
     public Optional<Theater> findByAutor(String autor) {
         return theaterRepo.findByAutor( autor);
+    }
+
+    public Optional<Category> findByCategoryName(String name) {
+        return theaterRepo.findByCategory(name);
     }
 }
